@@ -375,13 +375,19 @@ async function previewRepo() {
 function renderPreview() {
   const area = $('#preview-area');
   area.hidden = false;
-  const agents = state.agents.filter((a) => a.present);
+  const presentAgents = state.agents.filter((a) => a.present);
   const cands = state.previewCandidates;
 
   if (state.selectedTargets.size === 0) {
-    // 默认勾选所有「已检测到」的 agent
-    agents.forEach((a) => state.selectedTargets.add(a.key));
+    // 默认安装到 Claude Code；若未检测到该 agent 则回退到所有「已检测到」的 agent。
+    const cc = state.agents.find((a) => a.key === 'claude-code');
+    if (cc?.present) state.selectedTargets.add('claude-code');
+    else presentAgents.forEach((a) => state.selectedTargets.add(a.key));
   }
+
+  const allPresentSelected =
+    presentAgents.length > 0 &&
+    presentAgents.every((a) => state.selectedTargets.has(a.key));
 
   area.innerHTML = `
     <p class="field-label">选择要安装的 skill：</p>
@@ -399,7 +405,10 @@ function renderPreview() {
         )
         .join('')}
     </div>
-    <p class="field-label">安装到：</p>
+    <div class="label-row">
+      <p class="field-label">安装到：</p>
+      <button id="btn-select-all-agents" class="btn btn-ghost btn-sm">${allPresentSelected ? '全不选' : '全选'}</button>
+    </div>
     <div class="agent-picks">
       ${state.agents
         .map(
@@ -427,6 +436,14 @@ function renderPreview() {
       renderPreview();
     })
   );
+  $('#btn-select-all-agents').addEventListener('click', () => {
+    if (allPresentSelected) {
+      presentAgents.forEach((a) => state.selectedTargets.delete(a.key));
+    } else {
+      presentAgents.forEach((a) => state.selectedTargets.add(a.key));
+    }
+    renderPreview();
+  });
   $('#btn-confirm-install').addEventListener('click', confirmInstall);
 }
 

@@ -17,7 +17,7 @@ npm start
 - **查看用法**：点击卡片渲染完整 `SKILL.md` 正文。
 - **删除**：删除目录或软链接，可选连带删除共享库真实目录，并同步更新 `~/.agents/.skill-lock.json`。
 - **安装**：支持两种方式 ——
-  1. **Git 仓库地址**：`https://…` 或 `owner/repo`，先扫描仓库里的 skill，再选择安装到哪些 agent。
+  1. **Git 仓库地址**：`https://…` 或 `owner/repo`，先扫描仓库里的 skill，再选择安装到哪些 agent（可多选，支持「全选」，默认 Claude Code）。
   2. **自定义命令**：直接执行 shell 命令（最长 120s），完成后重新扫描。
 
 ## 目录结构
