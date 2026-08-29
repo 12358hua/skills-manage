@@ -1,0 +1,24 @@
+{
+  "port": 3456,
+  "agents": {
+    "claude-code": {
+      "label": "Claude Code",
+      "dirs": ["~/.claude/skills", "<cwd>/.claude/skills"]
+    },
+    "codex": {
+      "label": "Codex",
+      "dirs": ["~/.codex/skills", "~/.codex"]
+    },
+    "workbuddy": {
+      "label": "WorkBuddy",
+      "dirs": ["~/.workbuddy/skills"]
+    }
+  },
+  "categories": [
+    { "name": "写作", "keywords": ["story", "writing", "humanize", "humanizer", "wechat-article", "novel", "小说", "写作", "文章"] },
+    { "name": "金融投资", "keywords": ["stock", "股票", "选股", "投研", "投资", "金融", "财经", "通达信", "涨停", "证券", "行情", "研报", "invest", "finance"] },
+    { "name": "搜索", "keywords": ["search", "exa", "google", "brave", "web-search", "检索", "搜索"] },
+    { "name": "办公", "keywords": ["office", "docx", "xlsx", "pptx", "word", "excel", "document", "文档", "办公"] },
+    { "name": "开发工具", "keywords": ["code-review", "security", "agent-tools", "browser-cdp", "browser-use", "workctl", "claude-code-setup", "skill-creator", "mcp", "review", "dev", "开发", "工具"] }
+  ]
+}

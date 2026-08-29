@@ -1,0 +1,15 @@
+{
+  "name": "skills-manage",
+  "version": "0.1.0",
+  "description": "本地 skills 自动管理工具：扫描、分类、查看、删除、安装各 agent 的 skill",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "marked": "^12.0.2"
+  }
+}
