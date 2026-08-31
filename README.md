@@ -4,7 +4,7 @@
 
 基于 Node.js + Express，前端为原生 HTML/CSS/JS，无构建步骤，开箱即用。
 
-
+![alt text](public/image.png)
 
 ## 功能
 
