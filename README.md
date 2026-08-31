@@ -4,6 +4,8 @@
 
 基于 Node.js + Express，前端为原生 HTML/CSS/JS，无构建步骤，开箱即用。
 
+
+
 ## 功能
 
 - **扫描分类**：自动探测各 agent 的 skills 目录，解析每个 skill 的 `SKILL.md`（name / description），按 agent 分组、按关键词自动归类（写作 / 金融投资 / 搜索 / 办公 / 开发工具 / 其他）。
